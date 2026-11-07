@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kastamonu Taşmektep MTAL - Bölümler ve Kadro Rehberi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #990000;
+            --primary-dark: #700000;
+            --accent: #d9534f;
+            --light: #f8f9fa;
+            --dark: #333333;
+            --gray: #6c757d;
+            --border: #dee2e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-badge {
+            background: white;
+            color: var(--primary);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .school-title h1 {
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .school-title p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-admin {
+            background: #ffc107;
+            color: #000;
+            font-weight: 600;
+            border: none;
+        }
+        .btn-admin:hover {
+            background: #e0a800;
+            color: #000;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            filter: brightness(0.85);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .info-bar {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-item i {
+            color: var(--primary);
+        }
+
+        .main-section {
+            padding: 30px 0;
+        }
+
+        .search-filter-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(153, 0, 0, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* BÖLÜM BİLGİ KARTI */
+        .dept-info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            border-left: 5px solid var(--primary);
+            display: none;
+        }
+
+        .dept-info-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dept-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .dept-detail-grid { grid-template-columns: 1fr; }
+        }
+
+        .dept-box {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+
+        .dept-box h4 {
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .dept-box p {
+            font-size: 0.88rem;
+            color: #555;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .staff-img-container {
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .staff-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        .staff-body {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .staff-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .staff-title {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .staff-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+        }
+
+        .action-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .action-icon:hover {
+            color: var(--primary);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(3px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: var(--primary);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <div class="logo-badge">1869</div>
+                <div class="school-title">
+                    <h1>TAŞMEKTEP MTAL</h1>
+                    <p>Kastamonu Mesleki ve Teknik Anadolu Lisesi</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="tel:03662141054" class="btn"><i class="fas fa-phone"></i> Ara</a>
+                <button class="btn btn-admin" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Yönetici Paneli</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Okul Banner Görseli -->
+    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80" alt="Taşmektep MTAL" class="hero-banner">
+
+    <div class="info-bar">
+        <div class="container info-grid">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> Saraçlar Mah. Sanat Okulu Cad. No: 2, Merkez / Kastamonu</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> 168124@meb.k12.tr</div>
+            <div class="info-item"><i class="fas fa-phone-alt"></i> +90 366 214 10 54</div>
+        </div>
+    </div>
+
+    <main class="container main-section">
+        <div class="search-filter-box">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Öğretmen adı, soyadı veya branş ara..." onkeyup="filterStaff()">
+            </div>
+            <div class="filter-tabs">
+                <button class="tab-btn active" onclick="filterCategory('Tümü', this)">Tümü</button>
+                <button class="tab-btn" onclick="filterCategory('Okul Yönetimi', this)">Okul Yönetimi</button>
+                <button class="tab-btn" onclick="filterCategory('Rehberlik', this)">Rehberlik</button>
+                <button class="tab-btn" onclick="filterCategory('Bilişim Teknolojileri', this)">Bilişim Teknolojileri</button>
+                <button class="tab-btn" onclick="filterCategory('Elektrik-Elektronik', this)">Elektrik-Elektronik</button>
+                <button class="tab-btn" onclick="filterCategory('Makine Teknolojisi', this)">Makine Teknolojisi</button>
+                <button class="tab-btn" onclick="filterCategory('Mobilya & Tasarım', this)">Mobilya & Tasarım</button>
+                <button class="tab-btn" onclick="filterCategory('Türk Dili ve Edebiyatı', this)">Türk Dili ve Edebiyatı</button>
+                <button class="tab-btn" onclick="filterCategory('Beden Eğitimi', this)">Beden Eğitimi</button>
+            </div>
+        </div>
+
+        <!-- Bölüm Detay ve Meslek Bilgi Kartı -->
+        <div id="deptInfoCard" class="dept-info-card">
+            <h3 id="deptTitle"><i class="fas fa-graduation-cap"></i> Bölüm Bilgisi</h3>
+            <div class="dept-detail-grid">
+                <div class="dept-box">
+                    <h4><i class="fas fa-book-open"></i> Neler Öğreneceksiniz?</h4>
+                    <p id="deptLearn"></p>
+                </div>
+                <div class="dept-box">
+                    <h4><i class="fas fa-briefcase"></i> Mezun Olunca Ne Olabilirsiniz? (Kariyer)</h4>
+                    <p id="deptCareer"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="staff-grid" id="staffGrid">
+            <!-- JavaScript ile doldurulacak -->
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Yönetici Girişi</h3>
+                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kastamonu Taşmektep Mesleki ve Teknik Anadolu Lisesi | Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Bölüm Detayları (Öğrenilecekler ve Kariyer/Meslekler)
+        const departmentDetails = {
+            "Bilişim Teknolojileri": {
+                learn: "Web tasarımı, yazılım geliştirme, bilgisayar ağları, veritabanı yönetimi, donanım tamiri ve siber güvenlik temelleri.",
+                career: "Yazılım Geliştirici, Web Tasarımcısı, Bilgi İşlem Uzmanı, Ağ Yöneticisi, Veritabanı Uzmanı veya Kendi Teknik Servis Sahibi."
+            },
+            "Elektrik-Elektronik": {
+                learn: "Elektrik tesisat projeleri, bina otomotiv elektroniği, endüstriyel otomasyon, PLC programlama ve güvenlik sistemleri.",
+                career: "Elektrik Teknisyeni, Otomasyon Uzmanı, Bakım-Onarım Teknikeri, Güvenlik Sistemleri Kurulum Uzmanı veya Sanayi İşletme Teknikeri."
+            },
+            "Makine Teknolojisi": {
+                learn: "Bilgisayar destekli tasarım (CAD/CAM), CNC tezgah kullanımı, talaşlı imalat, teknik resim çizimi ve mekanik montaj.",
+                career: "CNC Operatörü, Makine Ressamı/Tasarımcısı, İmalat Teknisyeni
+  # tastmektep
