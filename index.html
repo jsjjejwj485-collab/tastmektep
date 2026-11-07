@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kastamonu Taşmektep MTAL - Bölümler ve Kadro Rehberi</title>
+    <title>Kastamonu Taşmektep MTAL - 1869 Rehberi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #990000;
-            --primary-dark: #700000;
-            --accent: #d9534f;
-            --light: #f8f9fa;
-            --dark: #333333;
-            --gray: #6c757d;
-            --border: #dee2e6;
+            --primary: #800000;
+            --primary-dark: #400000;
+            --accent: #d4af37;
+            --dark-bg: #0d1b2a;
+            --card-bg: #1b263b;
+            --text-light: #f8f9fa;
         }
 
         * {
@@ -24,16 +23,20 @@
         }
 
         body {
-            background-color: #f4f6f9;
-            color: var(--dark);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
         }
 
+        /* HEADER & NAVBAR */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .container {
@@ -42,506 +45,448 @@
             padding: 0 20px;
         }
 
-        .header-content {
+        .nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
-        .logo-area {
+        .brand {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
+            cursor: pointer;
         }
 
-        .logo-badge {
-            background: white;
-            color: var(--primary);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
+        .brand h1 {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .brand span {
+            font-size: 0.8rem;
+            color: var(--accent);
             font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .school-title h1 {
-            font-size: 1.8rem;
-            letter-spacing: 0.5px;
-        }
-
-        .school-title p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .header-actions {
+        nav ul {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            list-style: none;
+            gap: 25px;
         }
 
-        .btn {
-            background: rgba(255,255,255,0.15);
+        nav ul li a {
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-
-        .btn:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-admin {
-            background: #ffc107;
-            color: #000;
             font-weight: 600;
-            border: none;
+            font-size: 1.05rem;
+            padding: 6px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
         }
-        .btn-admin:hover {
-            background: #e0a800;
+
+        nav ul li a:hover, nav ul li a.active {
+            background: var(--accent);
             color: #000;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            filter: brightness(0.85);
-            border-bottom: 4px solid var(--primary);
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(13,27,42,0.85), rgba(13,27,42,0.85)), url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1400&q=80') center/cover;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
         }
 
-        .info-bar {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 12px 0;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .info-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-item i {
-            color: var(--primary);
-        }
-
-        .main-section {
-            padding: 30px 0;
-        }
-
-        .search-filter-box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-        }
-
-        .search-box {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 15px 12px 45px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.2s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(153, 0, 0, 0.1);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .filter-tabs {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: var(--light);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--dark);
-            transition: 0.2s;
-        }
-
-        .tab-btn:hover, .tab-btn.active {
-            background: var(--primary);
+        .hero h2 {
+            font-size: 2.8rem;
             color: white;
-            border-color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
-        /* BÖLÜM BİLGİ KARTI */
-        .dept-info-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-            border-left: 5px solid var(--primary);
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* PAGES */
+        .page {
             display: none;
+            padding: 40px 0;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
-        .dept-info-card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .page.active-page {
+            display: block;
         }
 
-        .dept-detail-grid {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        /* DEPARTMENTS GRID */
+        .grid-3 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
         }
 
-        @media (max-width: 768px) {
-            .dept-detail-grid { grid-template-columns: 1fr; }
-        }
-
-        .dept-box {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-        }
-
-        .dept-box h4 {
-            font-size: 0.95rem;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-        }
-
-        .dept-box p {
-            font-size: 0.88rem;
-            color: #555;
-        }
-
-        .staff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .staff-card {
-            background: white;
-            border-radius: 10px;
+        .dept-card {
+            background: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
         }
 
-        .staff-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        .dept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(128,0,0,0.4);
+            border-color: var(--accent);
         }
 
-        .staff-img-container {
-            height: 140px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .staff-img-container img {
+        .dept-card img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
         }
 
-        .staff-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            border-radius: 4px;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
-        }
-
-        .staff-body {
-            padding: 15px;
-            text-align: center;
+        .dept-body {
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .staff-name {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .staff-title {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
+        .dept-body h3 {
+            color: white;
             margin-bottom: 10px;
-            text-transform: uppercase;
+            font-size: 1.3rem;
         }
 
-        .staff-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-        }
-
-        .action-icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--gray);
+        .dept-body p {
+            color: #b0c4de;
             font-size: 0.9rem;
-            transition: 0.2s;
-        }
-
-        .action-icon:hover {
-            color: var(--primary);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(3px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h3 {
-            color: var(--primary);
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-
-        .form-group {
             margin-bottom: 15px;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--primary);
-        }
-
-        .btn-submit {
+        .btn-detail {
             background: var(--primary);
             color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
+            padding: 8px 15px;
             border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
+            text-align: center;
+            font-weight: 650;
+            text-decoration: none;
+            transition: background 0.3s;
         }
 
-        .btn-submit:hover {
-            background: var(--primary-dark);
+        .dept-card:hover .btn-detail {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* DETAIL PAGE */
+        .detail-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .detail-flex {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .detail-flex img {
+            max-width: 450px;
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .info-card {
+            background: #111827;
+            border-left: 4px solid var(--accent);
+            padding: 18px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-card h4 {
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .back-btn {
+            background: #334155;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* TEACHERS SECTION (Fotoğraflardaki Düzen) */
+        .teacher-category {
+            margin-bottom: 40px;
+        }
+
+        .teacher-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 15px;
+        }
+
+        .teacher-row {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .teacher-row h5 {
+            font-size: 1.05rem;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .teacher-row span {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
         }
 
         footer {
-            background: var(--dark);
-            color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-size: 0.9rem;
+            padding: 30px 0;
+            background: #090d16;
+            color: #64748b;
+            margin-top: 50px;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container header-content">
-            <div class="logo-area">
-                <div class="logo-badge">1869</div>
-                <div class="school-title">
-                    <h1>TAŞMEKTEP MTAL</h1>
-                    <p>Kastamonu Mesleki ve Teknik Anadolu Lisesi</p>
-                </div>
+        <div class="container nav-bar">
+            <div class="brand" onclick="showPage('home')">
+                <h1>TAŞMEKTEP</h1>
+                <span>1869 REHBERİ</span>
             </div>
-            <div class="header-actions">
-                <a href="tel:03662141054" class="btn"><i class="fas fa-phone"></i> Ara</a>
-                <button class="btn btn-admin" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Yönetici Paneli</button>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="nav-home" class="active" onclick="showPage('home')">Alanlar</a></li>
+                    <li><a href="#" id="nav-teachers" onclick="showPage('teachers')">Öğretmenler</a></li>
+                    <li><a href="#" id="nav-about" onclick="showPage('about')">Okulumuz</a></li>
+                    <li><a href="#" id="nav-contact" onclick="showPage('contact')">İletişim</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Okul Banner Görseli -->
-    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80" alt="Taşmektep MTAL" class="hero-banner">
-
-    <div class="info-bar">
-        <div class="container info-grid">
-            <div class="info-item"><i class="fas fa-map-marker-alt"></i> Saraçlar Mah. Sanat Okulu Cad. No: 2, Merkez / Kastamonu</div>
-            <div class="info-item"><i class="fas fa-envelope"></i> 168124@meb.k12.tr</div>
-            <div class="info-item"><i class="fas fa-phone-alt"></i> +90 366 214 10 54</div>
-        </div>
-    </div>
-
-    <main class="container main-section">
-        <div class="search-filter-box">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Öğretmen adı, soyadı veya branş ara..." onkeyup="filterStaff()">
-            </div>
-            <div class="filter-tabs">
-                <button class="tab-btn active" onclick="filterCategory('Tümü', this)">Tümü</button>
-                <button class="tab-btn" onclick="filterCategory('Okul Yönetimi', this)">Okul Yönetimi</button>
-                <button class="tab-btn" onclick="filterCategory('Rehberlik', this)">Rehberlik</button>
-                <button class="tab-btn" onclick="filterCategory('Bilişim Teknolojileri', this)">Bilişim Teknolojileri</button>
-                <button class="tab-btn" onclick="filterCategory('Elektrik-Elektronik', this)">Elektrik-Elektronik</button>
-                <button class="tab-btn" onclick="filterCategory('Makine Teknolojisi', this)">Makine Teknolojisi</button>
-                <button class="tab-btn" onclick="filterCategory('Mobilya & Tasarım', this)">Mobilya & Tasarım</button>
-                <button class="tab-btn" onclick="filterCategory('Türk Dili ve Edebiyatı', this)">Türk Dili ve Edebiyatı</button>
-                <button class="tab-btn" onclick="filterCategory('Beden Eğitimi', this)">Beden Eğitimi</button>
-            </div>
-        </div>
-
-        <!-- Bölüm Detay ve Meslek Bilgi Kartı -->
-        <div id="deptInfoCard" class="dept-info-card">
-            <h3 id="deptTitle"><i class="fas fa-graduation-cap"></i> Bölüm Bilgisi</h3>
-            <div class="dept-detail-grid">
-                <div class="dept-box">
-                    <h4><i class="fas fa-book-open"></i> Neler Öğreneceksiniz?</h4>
-                    <p id="deptLearn"></p>
-                </div>
-                <div class="dept-box">
-                    <h4><i class="fas fa-briefcase"></i> Mezun Olunca Ne Olabilirsiniz? (Kariyer)</h4>
-                    <p id="deptCareer"></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="staff-grid" id="staffGrid">
-            <!-- JavaScript ile doldurulacak -->
-        </div>
-    </main>
-
-    <!-- Modal -->
-    <div class="modal" id="adminModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Yönetici Girişi</h3>
-                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            </div>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <footer>
+    <section class="hero">
         <div class="container">
-            <p>&copy; 2026 Kastamonu Taşmektep Mesleki ve Teknik Anadolu Lisesi | Tüm Hakları Saklıdır.</p>
+            <h2>BİRLİKTE ÖĞREN, BİRLİKTE İLERLE.</h2>
+            <p>"150 Yıllık Asırlık Çınar, Geleceğin Mesleki Üssü"</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // Bölüm Detayları (Öğrenilecekler ve Kariyer/Meslekler)
-        const departmentDetails = {
-            "Bilişim Teknolojileri": {
-                learn: "Web tasarımı, yazılım geliştirme, bilgisayar ağları, veritabanı yönetimi, donanım tamiri ve siber güvenlik temelleri.",
-                career: "Yazılım Geliştirici, Web Tasarımcısı, Bilgi İşlem Uzmanı, Ağ Yöneticisi, Veritabanı Uzmanı veya Kendi Teknik Servis Sahibi."
-            },
-            "Elektrik-Elektronik": {
-                learn: "Elektrik tesisat projeleri, bina otomotiv elektroniği, endüstriyel otomasyon, PLC programlama ve güvenlik sistemleri.",
-                career: "Elektrik Teknisyeni, Otomasyon Uzmanı, Bakım-Onarım Teknikeri, Güvenlik Sistemleri Kurulum Uzmanı veya Sanayi İşletme Teknikeri."
-            },
-            "Makine Teknolojisi": {
-                learn: "Bilgisayar destekli tasarım (CAD/CAM), CNC tezgah kullanımı, talaşlı imalat, teknik resim çizimi ve mekanik montaj.",
-                career: "CNC Operatörü, Makine Ressamı/Tasarımcısı, İmalat Teknisyeni
-  # tastmektep
+    <main class="container">
+
+        <!-- SAYFA 1: ALANLAR / BÖLÜMLER -->
+        <div id="page-home" class="page active-page">
+            <h2 class="section-title">Eğitim Alanlarımız & Bölümler</h2>
+            <div class="grid-3" id="deptGrid"></div>
+        </div>
+
+        <!-- SAYFA 2: BÖLÜM DETAY -->
+        <div id="page-detail" class="page">
+            <button class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Alanlara Geri Dön</button>
+            <div class="detail-box" id="detailContent"></div>
+        </div>
+
+        <!-- SAYFA 3: ÖĞRETMENLER (Fotoğraflardaki Liste Yapısı) -->
+        <div id="page-teachers" class="page">
+            <h2 class="section-title">Okul Kadrosu & Öğretmenler</h2>
+            
+            <!-- OKUL YÖNETİMİ -->
+            <div class="teacher-category">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">OKUL YÖNETİMİ</h3>
+                <div class="teacher-list-grid">
+                    <div class="teacher-row"><h5>Mehmet Şükrü BAYRAKTAR</h5><span>Okul Müdürü</span></div>
+                    <div class="teacher-row"><h5>İzzet YANAŞMAOĞLU</h5><span>Müdür Başyardımcısı</span></div>
+                    <div class="teacher-row"><h5>Kürşad HASANUSTA</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Nagihan BALTACI</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Volkan COŞKUN</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Dilek ARSLAN</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Alper YAZAN</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Meral AVCI</h5><span>Müdür Yardımcısı</span></div>
+                    <div class="teacher-row"><h5>Mahir Emre DOĞUŞ</h5><span>Müdür Yardımcısı</span></div>
+                </div>
+            </div>
+
+            <!-- REHBERLİK -->
+            <div class="teacher-category">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">REHBERLİK VE PSİKOLOJİK DANIŞMANLIK</h3>
+                <div class="teacher-list-grid">
+                    <div class="teacher-row"><h5>Meltem KÜÇÜKBEZCİ</h5><span>Rehberlik ve Psikolojik Danışmanlık</span></div>
+                    <div class="teacher-row"><h5>Edanur GÜLÜNAY</h5><span>Rehberlik ve Psikolojik Danışmanlık</span></div>
+                </div>
+            </div>
+
+            <!-- ALAN / ZÜMRE ÖĞRETMENLERİ -->
+            <div class="teacher-category">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">ALAN / ZÜMRE ÖĞRETMENLERİ</h3>
+                <div class="teacher-list-grid">
+                    <div class="teacher-row"><h5>Ali GÜNEY</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Muhammet DARICIOĞLU</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Salih KANCALI</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Hasan EFE</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Sibel EFE</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Sercan KÜÇÜKBALTACI</h5><span>1. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Murat Fatih SAVAŞ</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Atilla Serdar MERCANOĞLU</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Sedat Hakan TURAN</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Lütfiye BAYRAKTAR</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Cafer KOÇ</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Sezgin DURMUŞ</h5><span>2. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Serkan ÖZSOY</h5><span>3. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Mustafa TÜRKMEN</h5><span>3. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Seyit CAN</h5><span>3. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Mustafa ALİBAŞ</h5><span>4. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Tahsin ÖZGEN</h5><span>4. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Yücel ÖZGEN</h5><span>4. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Baka AKBAY</h5><span>4. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Kadir ÖZDEMİR</h5><span>5. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Erkan TEKELİOĞLU</h5><span>5. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Enver İVGÖREN</h5><span>5. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Ali Osman DUMAN</h5><span>6. Alan / Zümre Öncü Lideri</span></div>
+                    <div class="teacher-row"><h5>Ceyhan KİRİŞTİOĞLU</h5><span>6. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Turan AHMETOĞLU</h5><span>6. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Ülkü ŞAHİN</h5><span>7. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Rabia DEMİRTAŞ</h5><span>7. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Turan DİKEL</h5><span>7. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Nebiye BUDAK</h5><span>7. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Halit BIŞKİN</h5><span>8. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Salih Mert KAYA</h5><span>8. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Arzu GÜLER</h5><span>8. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Fatma Derin ERTETİK</h5><span>8. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Ayşe Yiğit GÜNER</h5><span>10. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Serkan GÜL</h5><span>10. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Tütay ŞEKERCİ</h5><span>10. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Demet ÖZEKMEXÇİ</h5><span>11. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Elif Ayşegül ÇİN</h5><span>11. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Mert CİLAN</h5><span>11. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Murat KILIÇ</h5><span>11. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Nihat ALTIKULAÇOĞLU</h5><span>11. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Musa Türker KARAHASAN</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Ümit GÜNGÖR</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Baki İDRİSOĞLU</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Hilal EREN</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Satiye Özlem ERDEN</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Kübra ARSLAN</h5><span>12. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Selvihan EKİCİ</h5><span>13. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>İsmail BİNİCİ</h5><span>13. Alan / Zümre</span></div>
+                    <div class="teacher-row"><h5>Mahir İlker ARICIOĞLU</h5><span>13. Alan / Zümre</span></div>
+                </div>
+            </div>
+
+            <!-- TÜRK DİLİ VE EDEBİYATI -->
+            <div class="teacher-category">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">TÜRK DİLİ VE EDEBİYATI</h3>
+                <div class="teacher-list-grid">
+                    <div class="teacher-row"><h5>Esma Atasal İPEK</h5><span>Türk Dili ve Edebiyatı Zümresi</span></div>
+                    <div class="teacher-row"><h5>Ramazan AÇIKGÖZ</h5><span>Türk Dili ve Edebiyatı</span></div>
+                    <div class="teacher-row"><h5>Kezban SİPER</h5><span>Türk Dili ve Edebiyatı Zümresi</span></div>
+                    <div class="teacher-row"><h5>Saliha TÜMTÜRK ÇEKİLDAŞ</h5><span>Türk Dili ve Edebiyatı Zümresi</span></div>
+                    <div class="teacher-row"><h5>Nilüfer ÖMEROĞLU</h5><span>Türk Dili ve Edebiyatı</span></div>
+                    <div class="teacher-row"><h5>Ali Rıza SIRTLI</h5><span>Türk Dili ve Edebiyatı Zümresi</span></div>
+                    <div class="teacher-row"><h5>Derya ÇELEBİ</h5><span>Türk Dili ve Edebiyatı Zümresi</span></div>
+                </div>
+            </div>
+
+            <!-- BEDEN EĞİTİMİ -->
+            <div class="teacher-category">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">BEDEN EĞİTİMİ</h3>
+                <div class="teacher-list-grid">
+                    <div class="teacher-row"><h5>İhsan Hakan GÜNGÖR</h5><span>Beden Eğitimi</span></div>
+                    <div class="teacher-row"><h5>Şekip Mete HANCI</h5><span>Beden Eğitimi</span></div>
+                    <div class="teacher-row"><h5>Özge COŞKUN</h5><span>Beden Eğitimi Zümresi</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAYFA 4: OKULUMUZ -->
+        <div id="page-about" class="page">
+            <h2 class="section-title">Tarihi Taşmektep (1869)</h2>
+            <div class="detail-box">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">Kastamonu Taşmektep MTAL, Osmanlı Dönemi'nden bu yana Türk mesleki eğitiminin öncüsü olmuştur.</p>
+                <p style="font-size: 1.05rem; color: #94a3b8;">En son teknolojiyle donatılmış atölyeleriyle geleceğin ustalarını ve mühendislerini yetiştirmeye devam etmektedir.</p>
+            </div>
+        </div>
+
+        <!-- SAYFA 5: İLETİŞİM -->
+        <div id="page-contact" class="page">
+            <h2 class="section-title">İletişim Bilgileri</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Adres</h4>
+                    <p>Saraçlar Mah. Sanat Okulu Cad. No: 2, Merkez / Kastamonu</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Telefon</h4>
+                    <p>+90 (366) 214 10 54</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>E-Posta</h4>
+                    <p>168124@meb.k12.tr</p>
+                </div>
+          
